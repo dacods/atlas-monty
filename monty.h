@@ -50,6 +50,8 @@ typedef struct arg_s
 	char **tokens;
 	int n_tokens;
 	instruction_t *instruction;
+	stack_t *head;
+	int stack_length;
 } arg_t;
 
 extern arg_t *arguments;
@@ -64,7 +66,13 @@ void free_tokens(void);
 void get_instruction(void);
 void run_instruction(void);
 void invalid_instruction(void);
+void free_all_args(void);
+void free_args();
+void free_head(void);
+void free_stack(stack_t *head);
+int is_number(char *str);
 void close_stream(void);
+void delete_stack_node(void);
 void tokenize(void);
 void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);

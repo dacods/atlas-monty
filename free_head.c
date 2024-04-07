@@ -8,7 +8,7 @@
 
 void free_head(void)
 {
-	if (argumnets->head)
+	if (arguments->head)
 		free_stack(arguments->head);
 
 	arguments->head = NULL;
