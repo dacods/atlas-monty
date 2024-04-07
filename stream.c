@@ -9,6 +9,7 @@
 void stream_fail(char *filename)
 {
 	fprintf(stderr, "Error: Can't open file %s\n", filename);
+	free_args();
 	exit(EXIT_FAILURE);
 }
 

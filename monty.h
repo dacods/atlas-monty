@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <string.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -44,6 +46,10 @@ typedef struct arg_s
 {
 	FILE *stream;
 	char *line;
+	unsigned int line_number;
+	char **tokens;
+	int n_tokens;
+	instruction_t *instruction;
 } arg_t;
 
 extern arg_t *arguments;
@@ -54,5 +60,18 @@ void init_args();
 void malloc_error(void);
 void stream_fail(char *filename);
 void stream(char *filename);
+void free_tokens(void);
+void get_instruction(void);
+void run_instruction(void);
+void invalid_instruction(void);
+void close_stream(void);
+void tokenize(void);
+void push(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_numebr);
+void nop(stack_t **stack, unsigned int line_number);
 
 #endif

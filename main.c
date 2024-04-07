@@ -20,7 +20,14 @@ int main(int argc, char **argv)
 	while (getline(&arguments->line, &n, arguments->stream) != -1)
 	{
 		arguments->line_number += 1;
+		tokenize();
+		get_instruction();
+		run_instruction();
+		free_tokens();
 	}
+
+	close_stream();
+	free_args();
 
 	return (0);
 }
