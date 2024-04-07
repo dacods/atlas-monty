@@ -6,7 +6,7 @@
  * Return: 0
  */
 
-void free_args()
+void free_args(void)
 {
 	if (arguments == NULL)
 		return;

@@ -40,6 +40,12 @@ typedef struct instruction_s
  * struct arg_s - hold variables
  * @stream: file that connects to the stream from file
  * @line: string which will be the line of text read from stream
+ * @line_number: tracking line number
+ * @tokens: store tokens from line
+ * @instruction: a vaild instruction from line
+ * @n_tokens: number of tokens
+ * @head: head of the stack
+ * @stack_length: tracks the number of nodes in the stack
  * Description: Hold variables that will be used
  */
 typedef struct arg_s
@@ -58,7 +64,7 @@ extern arg_t *arguments;
 
 int main(int argc, char **argv);
 void valid_args(int argc);
-void init_args();
+void init_args(void);
 void malloc_error(void);
 void stream_fail(char *filename);
 void stream(char *filename);
@@ -67,7 +73,7 @@ void get_instruction(void);
 void run_instruction(void);
 void invalid_instruction(void);
 void free_all_args(void);
-void free_args();
+void free_args(void);
 void free_head(void);
 void free_stack(stack_t *head);
 int is_number(char *str);
